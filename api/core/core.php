@@ -18,7 +18,6 @@ $status; // A message we can use here and there; hither and thither.
 // Mando requires.
 require_once "db.php"; // Database info and actual connection
 require_once "shared-functions.php";   // Function library to keep things organized
-require_once("modules/user-functions.php");
 
 // Some URL definitions for ease of use with our cURL requests
 // Define the base URL to be used (potential placeholder for better solution in the future).

@@ -1,5 +1,4 @@
 <?php
-include_once "modules/user-functions.php";
 include_once "core.php";
 
 // Easier mail helper dealie doodler.

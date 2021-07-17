@@ -1,4 +1,4 @@
-<?php require("./api/core.php");
+<?php require_once "api/core/core.php";
 // if (!empty($_SESSION)) {
 //     // Boot them back to login if we don't have a session set up.
 //     if (!isset($_SESSION['nemesys']['username']) && $_SESSION['nemesys']['has_cts_access'] == 1) {
@@ -23,9 +23,9 @@
 
 <header>
     <!-- <h1 class="header">CVN 77 Correspondence Tracking System</h1> -->
-    <img src="./img/logo.png" id="cts-logo" title="CVN 77 Correspondence Tracking System">
+    <img src="img/logo.png" id="cts-logo" title="CVN 77 Correspondence Tracking System">
 </header>
-<?php include("./inc/navigation.php"); // include vice actual nav-bar because space. ?>
+<?php include("inc/navigation.php"); // include vice actual nav-bar because space. ?>
 
 <?php
     // Check to see if there's a specific view requested, but also which page is being fetched.
@@ -33,12 +33,12 @@
     if (isset($_GET['page'])) {
         if (($view == "admin" || $view == "dev") && (!IS_ADMIN || IS_DEVELOPER)) {
             // User isn't authorized to make admin changes; show them the home page.
-            include("./pages/home.php");
+            include("pages/home.php");
         }
-        @include("./pages/$view" . $_GET['page'] . ".php");
+        @include("pages/$view" . $_GET['page'] . ".php");
     } else {
         // If nada, just show the landing page.
-        include("./pages/home.php");
+        include("pages/home.php");
     }
 
 ?>

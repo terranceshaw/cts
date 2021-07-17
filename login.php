@@ -1,9 +1,10 @@
-<?php require_once "api/core.php";
+<?php require_once "api/core/core.php";
+include_once "api/objects/user.php";
 @session_start();
 
 if (!empty($_POST)) {
     sanitize($_POST);
-    if ($result = login($_POST['username'], $_POST['password'])) {
+    if ($result = User::login($_POST['username'], $_POST['password'])) {
         if (is_array($result)) {
             foreach ($result as $sessKey => $sessVar) {
                 $_SESSION['nemesys'][$sessKey] = $sessVar;
@@ -45,7 +46,7 @@ if (isset($_SESSION['nemesys']['username'])) {
                 echo "<span style=\"text-align: center; color: crimson;\">Database offline; please call ADP at 6256.</span>";
             } */
         ?>
-        <div class="row" style="margin-top: 20px">
+        <div class="row gap" style="margin-top: 20px">
             <input type="submit" value="Login" id="login-btn" class="confirm-btn">
             <input type="reset" value="Reset" id="reset-btn" class="cancel-btn">
         </div>
